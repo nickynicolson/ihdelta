@@ -22,4 +22,5 @@ if __name__ == "__main__":
 
     outputfile = args.inputfile.replace('.json','.csv')
     print('{} -> {}'.format(args.inputfile, outputfile))
-    df.to_csv(outputfile, index=False, sep=',')
+    output_columns = df.columns[:3]
+    df[output_columns].to_csv(outputfile, index=False, sep=',')
