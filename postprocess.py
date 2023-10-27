@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import argparse
 import json
-from pandas.io.json import json_normalize
 
 # Simple script to convert JSON to CSV
 
@@ -17,7 +16,7 @@ if __name__ == "__main__":
         ih_response = json.load(f)
 
     print(ih_response['meta'])
-    df = json_normalize(ih_response['data'])    
+    df = pd.json_normalize(ih_response['data'])    
     print(df)
     print(df.sample(n=1).T)
 
