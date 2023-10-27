@@ -13,4 +13,5 @@ if __name__ == "__main__":
 
     df = pd.read_json(args.inputfile)
     outputfile = args.inputfile.replace('.json','.csv')
+    print('{} -> {}'.format(args.inputfile, outputfile))
     df.to_csv(outputfile, index=False, sep='\t')
