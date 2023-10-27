@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import argparse
 import json
+from pandas.io.json import json_normalize
 
 # Simple script to convert JSON to CSV
 
@@ -16,11 +17,10 @@ if __name__ == "__main__":
         ih_response = json.load(f)
 
     print(ih_response['meta'])
-    df = pd.DataFrame(ih_response['data'])
+    df = json_normalize(ih_response['data'])    
     print(df)
     print(df.sample(n=1).T)
 
     outputfile = args.inputfile.replace('.json','.csv')
     print('{} -> {}'.format(args.inputfile, outputfile))
-    output_columns = df.columns[:3]
-    df[output_columns].to_csv(outputfile, index=False, sep=',')
+    df.to_csv(outputfile, index=False, sep=',')
