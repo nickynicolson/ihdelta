@@ -26,3 +26,4 @@ jobs:
         with:
           http_url: https://sweetgum.nybg.org/science/api/v1/institutions
           downloaded_filename: ih-institutions.json
+          postprocess: ./postprocess.ts
