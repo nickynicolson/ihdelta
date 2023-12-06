@@ -9,7 +9,7 @@ on:
     - cron: '5 4 * * 1'
 
 jobs:
-  scheduled:
+  flatten:
     runs-on: ubuntu-latest
     steps:
       # This step installs Deno, which is a new Javascript runtime that improves on Node. Can be used for an optional postprocessing step
@@ -27,6 +27,12 @@ jobs:
           http_url: https://sweetgum.nybg.org/science/api/v1/institutions
           downloaded_filename: ih-institutions.json
           postprocess: ./postprocess.ts
+  make_sqllite:
+    needs: flatten
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
       - name: Make SQLite
         run: |
           pip install git-history sqlite-utils
