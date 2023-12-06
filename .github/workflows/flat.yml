@@ -27,9 +27,9 @@ jobs:
           http_url: https://sweetgum.nybg.org/science/api/v1/institutions
           downloaded_filename: ih-institutions.json
           postprocess: ./postprocess.ts
-      - name: Make SQLLite
+      - name: Make SQLite
         run: |
-          pip install git-history sqllite-utils
+          pip install git-history sqlite-utils
           ls -ltrah
           git-history file --start-after cd8b46cff23a56802c1b499fbaf8591995422457 --csv --dialect unix --id irn ihdelta.db ih-institutions.csv
           ls -ltrah
