@@ -33,6 +33,7 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
+        fetch-depth: 0
       - name: Make SQLite
         run: |
           pip install git-history sqlite-utils
