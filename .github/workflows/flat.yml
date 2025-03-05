@@ -45,7 +45,7 @@ jobs:
           ls -ltrah
           sqlite-utils tables ihdelta.db --counts
       - name: Attach built .db artifact to run 
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ihdelta.db
           path: ihdelta.db
